@@ -66,9 +66,9 @@ namespace distributed_solver {
         // Reset primal solution.
         Instance::ResetCurrentPrimal(solution_);
 
-        clock_t t1, t2;
-        float diff;
-        t1 = clock();
+        double t1, t2;
+        double diff;
+        t1 = omp_get_wtime();
         // Find optimal budget allocations to problems.
         cout << "Solving subproblems \n";
         /*
@@ -78,30 +78,31 @@ namespace distributed_solver {
             subproblems_[i].SolveSubproblemConvexHullOptimized();
         }
     */
-        omp_set_num_threads(4);
+        omp_set_num_threads(6);
         #pragma omp parallel for
             for (int i = 0; i < num_partitions_; ++i) {
 				subproblems_[i].SolveSubproblemConvexHullOptimized();
 			}
       
-        t2 = clock();
-        diff = ((float)t2-(float)t1);
+        t2 = omp_get_wtime();
+        diff = t2-t1;
         cout << "subproblems took  " << diff << "\n";
 
 
         cout << "Find optimal budget allocation \n";
-        t1 = clock();
+        t1 = omp_get_wtime();
         FindOptimalBudgetAllocation();
-        t2 = clock();
-        diff = ((float)t2-(float)t1);
+        t2 = omp_get_wtime();
+        diff = t2-t1;
         cout << "budget allocation took  " << diff << "\n";
 
         // Calculate primal solution for each subproblem.
         cout << "Constructing primal \n";
-        t1 = clock();
+        t1 = omp_get_wtime();
         long double dual_val = 0;
         primal_assignment_test_ = 0;
-        
+      
+        /*
         for (int i = 0; i < num_partitions_; ++i) {
             if (budget_allocation_[i].second > 0) {
                 long double u = subproblems_[i].envelope_points_[budget_allocation_[i].first].first;
@@ -110,27 +111,24 @@ namespace distributed_solver {
                 ConstructSubproblemPrimal(i, budget_allocation_[i].second, budget_allocation_[i].first);
             }
         }
-        /*
+        */
 
-        threadId = 0;
+         omp_set_num_threads(6);
+         #pragma omp parallel shared( dual_val )
+         {
+            #pragma omp for
+             for (int i = 0; i < num_partitions_; ++i) {
+                 if (budget_allocation_[i].second > 0) {
+                     long double u = subproblems_[i].envelope_points_[budget_allocation_[i].first].first;
+                     long double v = subproblems_[i].envelope_points_[budget_allocation_[i].first].second;
+                     ConstructSubproblemPrimal(i, budget_allocation_[i].second, budget_allocation_[i].first);
+            #pragma omp atomic
+                     dual_val += u * budget_allocation_[i].second + v;
+                 }
+             }
+         }
 
-        omp_set_num_threads(num_threads);
 
-        #pragma omp parallel private ( threadId, ending, i ) \
-        shared( dual_val )
-        {
-            threadId = omp_get_thread_num();
-            cout << omp_get_num_threads();
-            ending = (threadId + 1 ) * num_partitions_ / num_threads;
-            for (i = threadId * num_partitions_ / num_threads; i < ending; i++){
-                long double u = subproblems_[i].envelope_points_[budget_allocation_[i].first].first;
-                long double v = subproblems_[i].envelope_points_[budget_allocation_[i].first].second;
-                dual_val += u * budget_allocation_[i].second + v;
-                ConstructSubproblemPrimal(i, budget_allocation_[i].second, budget_allocation_[i].first);
-            }
-
-        }
-*/
 /*
         for (int l = 0; l < num_partitions_; ++l) {
             cout << l << ", " << primal_changes_[l].first.first << ", " << primal_changes_[l].first.second << "\n";
@@ -138,8 +136,8 @@ namespace distributed_solver {
 */        
         Instance::UpdatePrimal(iteration, solution_, primal_changes_);
 
-        t2 = clock();
-        diff = ((float)t2-(float)t1);
+        t2 = omp_get_wtime();
+        diff = t2-t1;
         cout << "constructing primal took  " << diff << "\n";
 
         cout << "Dual Value = ";
