@@ -9,6 +9,12 @@
 /* Begin PBXBuildFile section */
 		203CE82B1773AB2A00699F1B /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 203CE82A1773AB2A00699F1B /* main.cpp */; };
 		203CE82D1773AB2A00699F1B /* LPsolver.1 in CopyFiles */ = {isa = PBXBuildFile; fileRef = 203CE82C1773AB2A00699F1B /* LPsolver.1 */; };
+		203CE8351773AB5C00699F1B /* instance.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 203CE8331773AB5C00699F1B /* instance.cpp */; };
+		203CE8381773ABA000699F1B /* allocation_mw.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 203CE8361773ABA000699F1B /* allocation_mw.cpp */; };
+		203CE83B1773AC1800699F1B /* global_problem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 203CE8391773AC1800699F1B /* global_problem.cpp */; };
+		203CE83E1773AC4700699F1B /* subproblem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 203CE83C1773AC4700699F1B /* subproblem.cpp */; };
+		203CE8411773ACAE00699F1B /* envelope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 203CE83F1773ACAE00699F1B /* envelope.cpp */; };
+		203CE84A1773AD2E00699F1B /* convex_hull.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 203CE8481773AD2E00699F1B /* convex_hull.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -28,6 +34,18 @@
 		203CE8271773AB2A00699F1B /* LPsolver */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = LPsolver; sourceTree = BUILT_PRODUCTS_DIR; };
 		203CE82A1773AB2A00699F1B /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
 		203CE82C1773AB2A00699F1B /* LPsolver.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = LPsolver.1; sourceTree = "<group>"; };
+		203CE8331773AB5C00699F1B /* instance.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = instance.cpp; sourceTree = "<group>"; };
+		203CE8341773AB5C00699F1B /* instance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = instance.h; sourceTree = "<group>"; };
+		203CE8361773ABA000699F1B /* allocation_mw.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = allocation_mw.cpp; sourceTree = "<group>"; };
+		203CE8371773ABA000699F1B /* allocation_mw.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = allocation_mw.h; sourceTree = "<group>"; };
+		203CE8391773AC1800699F1B /* global_problem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = global_problem.cpp; sourceTree = "<group>"; };
+		203CE83A1773AC1800699F1B /* global_problem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = global_problem.h; sourceTree = "<group>"; };
+		203CE83C1773AC4700699F1B /* subproblem.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = subproblem.cpp; sourceTree = "<group>"; };
+		203CE83D1773AC4700699F1B /* subproblem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = subproblem.h; sourceTree = "<group>"; };
+		203CE83F1773ACAE00699F1B /* envelope.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = envelope.cpp; sourceTree = "<group>"; };
+		203CE8401773ACAE00699F1B /* envelope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = envelope.h; sourceTree = "<group>"; };
+		203CE8481773AD2E00699F1B /* convex_hull.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = convex_hull.cpp; sourceTree = "<group>"; };
+		203CE8491773AD2E00699F1B /* convex_hull.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = convex_hull.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +80,18 @@
 			children = (
 				203CE82A1773AB2A00699F1B /* main.cpp */,
 				203CE82C1773AB2A00699F1B /* LPsolver.1 */,
+				203CE8331773AB5C00699F1B /* instance.cpp */,
+				203CE8341773AB5C00699F1B /* instance.h */,
+				203CE8361773ABA000699F1B /* allocation_mw.cpp */,
+				203CE8371773ABA000699F1B /* allocation_mw.h */,
+				203CE8391773AC1800699F1B /* global_problem.cpp */,
+				203CE83A1773AC1800699F1B /* global_problem.h */,
+				203CE83C1773AC4700699F1B /* subproblem.cpp */,
+				203CE83D1773AC4700699F1B /* subproblem.h */,
+				203CE83F1773ACAE00699F1B /* envelope.cpp */,
+				203CE8401773ACAE00699F1B /* envelope.h */,
+				203CE8481773AD2E00699F1B /* convex_hull.cpp */,
+				203CE8491773AD2E00699F1B /* convex_hull.h */,
 			);
 			path = LPsolver;
 			sourceTree = "<group>";
@@ -118,6 +148,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				203CE82B1773AB2A00699F1B /* main.cpp in Sources */,
+				203CE8351773AB5C00699F1B /* instance.cpp in Sources */,
+				203CE8381773ABA000699F1B /* allocation_mw.cpp in Sources */,
+				203CE83B1773AC1800699F1B /* global_problem.cpp in Sources */,
+				203CE83E1773AC4700699F1B /* subproblem.cpp in Sources */,
+				203CE8411773ACAE00699F1B /* envelope.cpp in Sources */,
+				203CE84A1773AD2E00699F1B /* convex_hull.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -184,6 +220,30 @@
 		203CE8311773AB2A00699F1B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ENABLE_OPENMP_SUPPORT = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = (
+					/Users/ciocan/Applications/IBM/ILOG/CPLEX_Studio_Academic124/cplex/include,
+					/Users/ciocan/Applications/IBM/ILOG/CPLEX_Studio_Academic124/concert/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/ciocan/Applications/IBM/ILOG/CPLEX_Studio_Academic124/cplex/lib/x86-64_darwin9_gcc4.0/static_pic",
+					"/Users/ciocan/Applications/IBM/ILOG/CPLEX_Studio_Academic124/concert/lib/x86-64_darwin9_gcc4.0/static_pic",
+				);
+				OTHER_CFLAGS = "-DIL_STD";
+				OTHER_LDFLAGS = (
+					"-lilocplex",
+					"-lconcert",
+					"-lcplex",
+					"-lm",
+					"-lpthread",
+					"-framework",
+					CoreFoundation,
+					"-framework",
+					IOKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Debug;
@@ -191,6 +251,30 @@
 		203CE8321773AB2A00699F1B /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				ENABLE_OPENMP_SUPPORT = YES;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				HEADER_SEARCH_PATHS = (
+					/Users/ciocan/Applications/IBM/ILOG/CPLEX_Studio_Academic124/cplex/include,
+					/Users/ciocan/Applications/IBM/ILOG/CPLEX_Studio_Academic124/concert/include,
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"/Users/ciocan/Applications/IBM/ILOG/CPLEX_Studio_Academic124/cplex/lib/x86-64_darwin9_gcc4.0/static_pic",
+					"/Users/ciocan/Applications/IBM/ILOG/CPLEX_Studio_Academic124/concert/lib/x86-64_darwin9_gcc4.0/static_pic",
+				);
+				OTHER_CFLAGS = "-DIL_STD";
+				OTHER_LDFLAGS = (
+					"-lilocplex",
+					"-lconcert",
+					"-lcplex",
+					"-lm",
+					"-lpthread",
+					"-framework",
+					CoreFoundation,
+					"-framework",
+					IOKit,
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
@@ -214,6 +298,7 @@
 				203CE8321773AB2A00699F1B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
